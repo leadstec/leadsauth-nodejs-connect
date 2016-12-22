@@ -1,0 +1,17 @@
+{
+  "name": "nodejs-leadsauth-demo",
+  "version": "1.0.0",
+  "description": "Demo page that demonstrates available leadsauth functionality",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Frank,H.L.Lai <frank@leadstec.com>",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "leadsauth-connect": "file:../",
+	  "hogan-express": "*",
+	  "express": "*",
+	  "express-session": "*"
+  }
+}

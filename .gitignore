@@ -1,0 +1,10 @@
+*.swp
+*.swo
+*.log
+node_modules/
+leadsauth-*
+!leadsauth-connect-test.js
+!leadsauth-object-test.js
+!leadsauth-fixture.json
+coverage
+pid.txt

@@ -1,0 +1,66 @@
+var LeadsAuth = require('leadsauth-connect');
+var hogan = require('hogan-express');
+var express = require('express');
+var session = require('express-session');
+
+var app = express();
+
+// Register '.mustache' extension with The Mustache Express
+app.set('view engine', 'html');
+app.set('views', require('path').join(__dirname, '/view'));
+app.engine('html', hogan);
+
+// A normal un-protected public URL.
+
+app.get('/', function (req, res) {
+  res.render('index');
+});
+
+// Create a session-store to be used by both the express-session
+// middleware and the leadsauth middleware.
+
+var memoryStore = new session.MemoryStore();
+
+app.use(session({
+  secret: 'mySecret',
+  resave: false,
+  saveUninitialized: true,
+  store: memoryStore
+}));
+
+// Provide the session store to the LeadsAuth so that sessions
+// can be invalidated from the LeadsAuth console callback.
+//
+// Additional configuration is read from leadsauth.json file
+// installed from the LeadsAuth web console.
+
+var leadsauth = new LeadsAuth({
+  store: memoryStore
+});
+
+// Install the LeadsAuth middleware.
+//
+// Specifies that the user-accessible application URL to
+// logout should be mounted at /logout
+//
+// Specifies that LeadsAuth console callbacks should target the
+// root URL.  Various permutations, such as /la_logout will ultimately
+// be appended to the admin URL.
+
+app.use(leadsauth.middleware({
+  logout: '/logout',
+  admin: '/'
+}));
+
+app.get('/login', leadsauth.protect(), function (req, res) {
+  res.render('index', {
+    result: JSON.stringify(JSON.parse(req.session['leadsauth-token']), null, 4),
+    event: '1. Authentication\n2. Login'
+  });
+});
+
+var server = app.listen(3000, function () {
+  var host = server.address().address;
+  var port = server.address().port;
+  console.log('Example app listening at http://%s:%s', host, port);
+});

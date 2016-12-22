@@ -1,0 +1,58 @@
+{
+  "name": "leadsauth-connect",
+  "version": "1.0.0",
+  "description": "LeadsAuth Connect Middleware",
+  "homepage": "http://www.leadstec.com/leadsauth",
+  "main": "index.js",
+  "scripts": {
+    "lint": "jshint *.js stores/*.js middleware/*.js example/*.js",
+    "format": "semistandard",
+    "test": "tape test/unit/leadsauth-object-test.js test/leadsauth-connect-test.js",
+    "prepublish": "nsp check",
+    "docs": "jsdoc --verbose -d docs -t ./node_modules/ink-docstrap/template -R README.md index.js ./middleware/*.js stores/*.js",
+    "coverage": "istanbul cover tape test/leadsauth-connect-test.js tape test/unit/leadsauth-object-test.js"
+  },
+  "keywords": [
+    "sso",
+    "leadsauth",
+    "oauth",
+    "oauth2.0",
+    "authentication"
+  ],
+  "files": [
+    "example",
+    "middleware",
+    "stores",
+    "test",
+    "index.js",
+    "uuid.js"
+  ],
+  "author": {
+    "name": "Leads Technologies",
+    "url": "http://www.leadstec.com"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "leadsauth-utils": "leadstec/leadsauth-nodejs-utils"
+  },
+  "bundledDependencies": [
+    "leadsauth-utils"
+  ],
+  "devDependencies": {
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "ink-docstrap": "^1.1.4",
+    "istanbul": "^0.4.3",
+    "jsdoc": "^3.4.0",
+    "jshint": "^2.9.1",
+    "nsp": "*",
+    "roi": "^0.12.1",
+    "semistandard": "^8.0.0",
+    "tape": "^4.5.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leadstec/leadsauth-nodejs-connect.git"
+  },
+  "bugs": "https://github.com/leadstec/leadsauth-nodejs-connect/issues"
+}

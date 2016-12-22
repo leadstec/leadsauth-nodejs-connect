@@ -1,5 +1,5 @@
 {
-    "realm": "demo",
+    "realm": "dev",
     "enabled": true,
     "sslRequired": "external",
     "registrationAllowed": true,
@@ -37,13 +37,13 @@
     },
     "scopeMappings": [
         {
-            "client": "nodejs-connect",
+            "client": "nodejs-demo",
             "roles": ["user"]
         }
     ],
     "clients": [
         {
-            "clientId": "nodejs-connect",
+            "clientId": "nodejs-demo",
             "enabled": true,
             "publicClient": true,
             "baseUrl": "/",
@@ -60,7 +60,7 @@
     "clientScopeMappings": {
         "account": [
             {
-                "client": "nodejs-connect",
+                "client": "nodejs-demo",
                 "roles": ["view-profile"]
             }
         ]

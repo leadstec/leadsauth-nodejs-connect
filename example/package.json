@@ -9,7 +9,7 @@
   "author": "Frank,H.L.Lai <frank@leadstec.com>",
   "license": "Apache-2.0",
   "dependencies": {
-    "leadsauth-connect": "file:../",
+    "leadsauth-connect": "leadstec/leadsauth-nodejs-connect",
 	  "hogan-express": "*",
 	  "express": "*",
 	  "express-session": "*"

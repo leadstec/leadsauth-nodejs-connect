@@ -5,14 +5,7 @@
 
 ###Start LeadsAuth:
 
-Open the LeadsAuth admin console, click on Add Realm, click on import 'Select file', 
-select demo-realm.json and click Create.
-
-Link the HEAD code of leadsauth-connect by running:
-
-```
-npm link ../
-```
+Open the LeadsAuth admin console, go to dev Realm, click on import 'Select file', select dev-realm.json and click Create.
 
 Install the dependencies and start NodeJS example by running:
 
